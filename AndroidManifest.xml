@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.myapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+    <permission
+        android:name="com.android.myapp.permission.READ_DB"
+        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+        android:protectionLevel="normal"
+        android:label="read Apps db in myapp"/>
+    <permission
+        android:name="com.android.myapp.permission.WRITE_DB"
+        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+        android:protectionLevel="normal"
+        android:label="write apps db"/>
+    <uses-permission android:name="com.android.myapp.permission.READ_DB" />
+    <uses-permission android:name="com.android.myapp.permission.WRITE_DB" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.android.myapp.MyLogin"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.android.myapp.network.MyWebViewActivity"
+            android:label="@string/webview" >
+        </activity>
+        <activity 
+            android:name="com.android.myapp.MyRegister"
+            android:label="@string/register" >
+        </activity>
+        <activity 
+            android:name="com.android.myapp.MyMain"
+            android:label="@string/main" >
+        </activity>
+        <activity 
+            android:name="com.android.myapp.MyUsers"
+            android:label="my user" >
+        </activity>
+        <activity 
+            android:name="com.android.myapp.service.MyReceiverActivity"
+            android:label="receiver" >
+        </activity>
+        <activity 
+            android:name="com.android.myapp.service.MyServiceActivity"
+            android:label="service" >
+        </activity>
+        <activity 
+            android:name="com.android.myapp.MyMultiPages"
+            android:label="multipages" >
+        </activity>
+        <service android:name="com.android.myapp.service.MyService"></service>
+        <provider
+            android:name="com.android.myapp.db.MyContentProvider"
+            android:authorities="com.android.myapp.db"
+            android:exported="true"
+            android:writePermission="com.android.myapp.permission.WRITE_DB"
+            android:readPermission="com.android.myapp.permission.READ_DB" />
+    </application>
+
+</manifest>
