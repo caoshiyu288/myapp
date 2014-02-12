@@ -1,17 +1,21 @@
 package com.android.myapp;
 
+import com.android.myapp.widget.MyTabHost;
+
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.ShareActionProvider;
 
-public class MyMultiPages extends Activity {
+public class MyMultiPages extends FragmentActivity {
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,9 @@ public class MyMultiPages extends Activity {
 		ActionBar bar = getActionBar();
 		bar.setDisplayHomeAsUpEnabled(true);
 //		bar.setDisplayShowTitleEnabled(true);
+		
+		MyTabHost tabHost = (MyTabHost) findViewById(R.id.tabhost);
+		tabHost.setActivity(this);
 	}
 
 	@SuppressLint("NewApi")

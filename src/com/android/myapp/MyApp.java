@@ -6,6 +6,8 @@ import android.database.Cursor;
 public class MyApp {
 	public String user;
 	public String password;
+	public String iconUrl;
+	public String name;
 	public ContentValues toContentValues(){
 		ContentValues values = new ContentValues();
 		values.put(MyAppSettings.DbParameter.USER, user);
