@@ -5,6 +5,7 @@ import com.android.myapp.utils.MyLog;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -21,6 +22,7 @@ public class MyWebViewActivity extends Activity{
 		setContentView(R.layout.activity_webview);
 		
 		mWebView = (WebView)findViewById(R.id.webView1);
+		mWebView.requestFocusFromTouch();
 		mWebView.setWebViewClient(new WebViewClient(){
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -28,17 +30,33 @@ public class MyWebViewActivity extends Activity{
 				view.loadUrl(url);
 				return true;
 			}
+
+			@Override
+			public void onPageStarted(WebView view, String url, Bitmap favicon) {
+				// TODO Auto-generated method stub
+				super.onPageStarted(view, url, favicon);
+			}
+
+			@Override
+			public void onPageFinished(WebView view, String url) {
+				// TODO Auto-generated method stub
+				super.onPageFinished(view, url);
+			}
+			
 			
 		});
+		
 		WebSettings webSettings = mWebView.getSettings();
 		webSettings.setJavaScriptEnabled(true);
+		webSettings.setSupportZoom(true);
 //		mWebView.loadUrl("http://www.baidu.com");
 		mWebView.addJavascriptInterface(new Object(){
 			public void clickOnAndroid(){
+				MyLog.d("clickOnAndroid>>>>>");
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						MyLog.d("clickOnAndroid>>>>>");
+						MyLog.d("clickOnAndroid--run");
 						mWebView.loadUrl("javascript:wave()");
 					}
 				});

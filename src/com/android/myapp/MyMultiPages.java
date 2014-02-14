@@ -41,11 +41,23 @@ public class MyMultiPages extends FragmentActivity {
 		acitonProvider_1.setShareIntent(createShareIntent());
 		
 		MenuItem shareMenu_2 =  menu.findItem(R.id.share_2);
-		ShareActionProvider acitonProvider_2 = (ShareActionProvider)shareMenu_1.getActionProvider();
+		ShareActionProvider acitonProvider_2 = (ShareActionProvider)shareMenu_2.getActionProvider();
 		acitonProvider_2.setShareIntent(createShareIntent());
+		
 		
 		return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();  
+	    if( id == android.R.id.home){
+	    	finish();
+	        return true;
+	    }
+		return super.onOptionsItemSelected(item);
+	}
+
 	private Intent createShareIntent() {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("image/*");

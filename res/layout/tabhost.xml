@@ -11,12 +11,13 @@
         android:id="@android:id/tabcontent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/tab_widget_height"
 	    >
 	</FrameLayout>
 		<TabWidget
 		    android:id="@android:id/tabs"
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
+		    android:layout_height="@dimen/tab_widget_height"
 		    android:layout_gravity="bottom"
 		     >
 		</TabWidget>

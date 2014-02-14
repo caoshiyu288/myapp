@@ -36,10 +36,9 @@
         android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button2"
         android:layout_below="@+id/textView1"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="42dp"
-        android:layout_toRightOf="@+id/textView1"
         android:ems="10" >
         <requestFocus />
     </EditText>
@@ -60,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/password"
-        android:layout_alignLeft="@+id/textView2"
+        android:layout_toLeftOf="@+id/password"
         android:text="password" />
 
     <TextView
@@ -68,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/user"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_toLeftOf="@+id/user"
         android:text="user" />
 
 </RelativeLayout>

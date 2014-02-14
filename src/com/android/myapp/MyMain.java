@@ -8,6 +8,7 @@ import butterknife.OnClick;
 
 import com.android.myapp.db.MyDbHelper;
 import com.android.myapp.db.SQLiteCursorLoader;
+import com.android.myapp.network.MyWebViewActivity;
 import com.android.myapp.service.MyReceiverActivity;
 import com.android.myapp.service.MyServiceActivity;
 
@@ -28,7 +29,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MyMain extends Activity{
-	@InjectView(R.id.button1)Button mShowAllUsers;
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class MyMain extends Activity{
 		TextView v = (TextView)findViewById(R.id.textView1);
 		v.setText(user+" login success!");
 		
-		EventBus.getDefault().register(this);
+		EventBus.getDefault().register(this);//post
 	}
 	private void store(){
 //		System.putInt(getContentResolver(), "user", 0);
@@ -78,5 +78,10 @@ public class MyMain extends Activity{
     	Intent intent = new Intent();
     	intent.setClass(this, MyMultiPages.class);
     	startActivity(intent);
-    }	
+    }
+    @OnClick(R.id.button5) public void showWebView(){
+    	Intent intent = new Intent();
+    	intent.setClass(this, MyWebViewActivity.class);
+    	startActivity(intent);
+    }
 }
